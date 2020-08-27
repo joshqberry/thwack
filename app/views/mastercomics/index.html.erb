@@ -1,0 +1,136 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2 style="float:left">Add existing comic to your want list</h1>
+<h2 style="padding-left:10%">&nbsp;&nbsp;&nbsp;&nbsp; Add existing comic to your have list</h1>
+<br>
+<br>
+<div id="newthing" style="float:left; width: 50%">
+For want comic
+<select id="mySelect" onchange="appear()">
+    <option value>Select title</option>
+    <option value="Bobby">Amazing Spider-Man
+    <option value="Shelby">Hulk
+    <option value="Zach">Detective Comics
+</select>
+<select id="spidernum" style = "visibility: hidden" onchange="appear2()">
+    <option value>Select issue number</option>
+    <option value="Bobby">1
+    <option value="Shelby">2
+    <option value="Zach">3
+    <option value="Zach2">4
+    <option value="Zach3">5
+</select>
+
+<select id="hulknum" style = "visibility: hidden" onchange="appear22()">
+  <option value>Select issue number</option>
+    <option value="Bobby">1
+    <option value="Shelby">2
+      <option value="Zach">3
+      <option value="Zach2">4
+      <option value="Zach3">5
+</select>
+
+<select id="detnum" style = "visibility: hidden" onchange="appear222()">
+  <option value>Select issue number</option>
+    <option value="Bobby">1
+    <option value="Shelby">2
+    <option value="Zach">3
+      <option value="Zach2">4
+      <option value="Zach3">5
+</select>
+
+<br>
+</div>
+For have comic
+<select id="mySelect2" onchange="appear3()">
+    <option value>Select title</option>
+    <option value="Bobby">Amazing Spider-Man
+    <option value="Shelby">Hulk
+    <option value="Zach">Detective Comics
+</select>
+
+<select id="spidernum2" style = "visibility: hidden" onchange="appear4()">
+    <option value>Select issue number</option>
+    <option value="Bobby">1
+    <option value="Shelby">2
+      <option value="Zach">3
+      <option value="Zach2">4
+      <option value="Zach3">5
+</select>
+
+<select id="hulknum2" style = "visibility: hidden" onchange="appear5()">
+    <option value>Select issue number</option>
+    <option value="Bobby">1
+    <option value="Shelby">2
+      <option value="Zach">3
+      <option value="Zach2">4
+      <option value="Zach3">5
+</select>
+
+<select id="detnum2" style = "visibility: hidden" onchange="appear12()">
+    <option value>Select issue number</option>
+    <option value="Bobby">1
+    <option value="Shelby">2
+      <option value="Zach">3
+      <option value="Zach2">4
+      <option value="Zach3">5
+</select>
+<br>
+<br>
+<br>
+
+
+
+
+<div class="row" style="width:40px; margin-left:10%; float:left">
+
+  <%= form_for @wantcomic do |f| %>
+
+     <p>
+      <%= f.label :mastercomic_id %>
+      <%= f.text_field :mastercomic_id, :id => "hoop" %>
+     </p>
+
+     <%= f.submit %>
+<% end %>
+</div>
+<br>
+<br>
+
+
+<div class="row" style="width:40px; float:right; margin-right:45%">
+
+  <%= form_for @havecomic do |f| %>
+
+     <p>
+      <%= f.label :mastercomic_id %>
+      <%= f.text_field :mastercomic_id, :id => "hoop2" %>
+     </p>
+
+     <%= f.submit %>
+  <% end %>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

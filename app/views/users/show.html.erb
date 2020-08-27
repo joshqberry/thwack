@@ -1,0 +1,303 @@
+
+
+
+<br>
+<br>
+<br>
+<div class="container">
+  <h2>Your dashboard</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">COMICS I WANT</a></li>
+    <li><a data-toggle="tab" href="#menu1">COMICS I HAVE</a></li>
+    <li><a data-toggle="tab" href="#menu2">TRADING OPTIONS</a></li>
+    <li><a data-toggle="tab" href="#menu3">Other?</a></li>
+  </ul>
+
+  <div class="tab-content">
+
+    <div id="home" class="tab-pane fade in active">
+      <br>
+      <h3 style="display:inline">COMICS I WANT</h3>&nbsp;&nbsp;&nbsp;<%= link_to " add comics to this list", mastercomics_path %>
+<br>
+<br>
+      <div id="wantcomics_just_covers">
+
+          <%  @wantcomics.each do |thingy| %>
+            <%   @yourcomics = Mastercomic.where(id: thingy.mastercomic_id) %>
+
+            <% @yourcomics.each do |yourcomic| %>
+            <div style="width:195px; float:left">
+              <img src="<%= yourcomic.imagesource %>" style="width:190px;height:260px;">
+              <br>
+              <b><%= yourcomic.title %></b>
+              <b><%= yourcomic.issuenumber %></b>
+            </div>
+        <% end %>
+        <% end %>
+
+
+      </div>
+    </div>
+
+    <div id="menu1" class="tab-pane fade">
+      <br>
+
+      <h3 style="display:inline">COMICS I HAVE</h3>&nbsp;&nbsp;&nbsp;<%= link_to " add comics to this list", mastercomics_path %>
+<br>
+  <br>
+      <div id="havecomics_just_covers">
+
+          <%  @havecomics.each do |thingy| %>
+            <%   @mycomics = Mastercomic.where(id: thingy.mastercomic_id) %>
+
+            <% @mycomics.each do |mycomic| %>
+            <div style="width:195px; float:left">
+              <img src="<%= mycomic.imagesource %>" style="width:190px;height:260px;">
+              <br>
+              <b><%= mycomic.title %></b>
+              <b><%= mycomic.issuenumber %></b>
+            </div>
+        <% end %>
+        <% end %>
+
+
+      </div>
+
+    </div>
+
+    <div id="menu2" class="tab-pane fade">
+      <br>
+
+
+      <div style="width:49%; float:left">
+      <h1> you-HAVE-they-want  </h1>
+<br>
+      <% @users.each do |user| %>
+
+      <% @intersection = @havearray & user.wantlist %>
+      <% if @intersection.count >= 2 %>
+      <p style="float:left">You have <%= @intersection.count %> matches with <%= user.email %>!</p>
+<br>
+<br>
+      <% end %>
+
+      <% if @intersection.count >= 2 %>
+      <% @intersection.each do |intersection| %>
+      <!-- Getting rid of the equals sign in the above line makes the
+      actual intersection array disappear from screen -->
+      <!-- <%= intersection %> -->
+      <!-- Getting rid of the above line makes the specialID disappear from screen -->
+      <div style="width:195px; float:left">
+      <img src="<%= Mastercomic.where(specialID: intersection)[0].imagesource %>" style="width:190px;height:260px;">
+<br>
+      <b><%= Mastercomic.where(specialID: intersection)[0].title %></b>
+      <b><%= Mastercomic.where(specialID: intersection)[0].issuenumber %></b>
+  </div>
+      <% end %>
+
+      <% end %>
+
+
+      <% end %>
+
+    </div>
+
+
+    <div style="width:49%; float:right">
+    <h1> you-WANT-they-have </h1>
+    <br>
+    <% @users.each do |user| %>
+
+    <% @intersection = @wantarray & user.havelist %>
+    <% if @intersection.count >= 2 %>
+    You have <%= @intersection.count %> matches with <%= user.email %>!
+    <br>
+    <% end %>
+    <% if @intersection.count >= 2 %>
+    <% @intersection.each do |intersection| %>
+    <!-- Getting rid of the equals sign in the above line makes the
+    actual intersection array disappear from screen -->
+    <!-- <%= intersection %> -->
+    <!-- Getting rid of the above line makes the specialID disappear from screen -->
+    <div style="width:195px; float:left">
+    <img src="<%= Mastercomic.where(specialID: intersection)[0].imagesource %>" style="width:190px;height:260px;">
+    <br>
+    <b><%= Mastercomic.where(specialID: intersection)[0].title %></b>
+    <b><%= Mastercomic.where(specialID: intersection)[0].issuenumber %></b>
+    </div>
+    <% end %>
+    <% end %>
+
+    <% end %>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+    <div id="menu3" class="tab-pane fade">
+      <h3>Other?</h3>
+      <p>Blah blah blah</p>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div style="float:right; margin-right:10%">
+<h1> you-have-they-want match array </h1>
+
+<% @users.each do |user| %>
+
+<% @intersection = @havearray & user.wantlist %>
+<%= @intersection.count %> matches with <%= user.email %>
+<br>
+<% if @intersection.count >= 2 %>
+<%= @intersection.each do |intersection| %>
+<%= intersection %>
+<br>
+<%= Mastercomic.where(specialID: intersection)[0].title %>
+<%= Mastercomic.where(specialID: intersection)[0].issuenumber %>
+<br>
+<% end %>
+<br>
+<br>
+<br>
+<br>
+<% end %>
+<% end %>
+
+</div>
+
+
+<div style="float:right; margin-right:10%">
+<h1> you-want-they-have match array </h1>
+
+<% @users.each do |user| %>
+
+<% @intersectionnn = @wantarray & user.havelist %>
+<%= @intersectionnn.count %> matches with <%= user.email %>
+<br>
+<% if @intersectionnn.count >= 2 %>
+<%= @intersectionnn.sort %>
+<br>
+<% end %>
+<% end %>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div style="float:right">
+
+
+<%= @wantarray %>
+  <br>
+  <br>
+  <button id="justCovers" onclick="justCovers()">
+    See just covers
+  </button>&nbsp;&nbsp;
+  <br>
+  <br>
+  <button id="listPlusCovers" onclick="listPlusCovers()">
+    See list plus covers
+  </button>&nbsp;&nbsp;
+  <br>
+  <br>
+
+  <h1> <%= @user.name %>'s want comics</h1>
+
+  <div id="just_covers">
+
+      <%  @wantcomics.each do |thingy| %>
+        <%   @yourcomics = Mastercomic.where(id: thingy.mastercomic_id) %>
+
+        <% @yourcomics.each do |yourcomic| %>
+          <img src="<%= yourcomic.imagesource %>" style="width:190px;height:260px;">
+
+    <% end %>
+    <% end %>
+
+
+  </div>
+
+<br>
+
+<div id="list_plus_covers" style="visibility:hidden">
+  <table class="table table-striped">
+    <thead>
+      <th>Title</th>
+      <th>Issue number</th>
+      <th>Publisher</th>
+      <th>Category</th>
+      <th>Special ID</th>
+      <th>Image</th>
+    </thead>
+
+    <tbody>
+
+    <%  @wantcomics.each do |thingy| %>
+      <%   @yourcomics = Mastercomic.where(id: thingy.mastercomic_id) %>
+
+      <% @yourcomics.each do |yourcomic| %>
+          <tr>
+          <td><%= yourcomic.title %>
+          </td>
+          <td><%= yourcomic.issuenumber %>
+          </td>
+          <td><%= yourcomic.publisher %>
+          </td>
+          <td><%= yourcomic.category %>
+          </td>
+          <td><%= yourcomic.specialID %>
+          </td>
+          <td><img src="<%= yourcomic.imagesource %>" style="width:190px;height:260px;"></td>
+        </tr>
+  <% end %>
+  <% end %>
+
+  </tbody>
+  </table>
+
+</div>

@@ -1,0 +1,82 @@
+<% if logged_in? %>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <p id="navbarhed" style="font-size:40px; float:left; margin-top:-5px"><%= link_to "Thwack!", root_path, {:style=>'color:red'} %></p>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "temporary link to Admin", welcome_path %></li>
+
+<% else %>
+<header id="test2" class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <p id="navbarhed" style="font-size:40px; float:left; margin-top:-5px"><%= link_to "Thwack!", root_path, {:style=>'color:red'} %></p>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "temporary link to Admin", welcome_path %></li>
+<% end %>
+
+
+<% if logged_in? %>
+  <li class="dropdown" style="margin-top:-5px">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="red" id="navthing"><%= @user.name %>!</font>
+      <b class="caret"></b></a>
+  <ul class="dropdown-menu">
+  <li style="float:right"><%= link_to "Dashboard", user_path(current_user) %></li>
+  <li style="float:right"><%= link_to "Log out", logout_path, method: "delete" %></li>
+  </ul>
+
+<% else %>
+  <li class="dropdown" style="margin-top:-5px">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="red" id="navthing">Log in!</font>
+      <b class="caret"></b></a>
+  <ul class="dropdown-menu" style="width:210px">
+    <div class="row" style="width:170px; margin-left:10%; margin-top:10%; float:left">
+
+      <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control', :style => "margin-bottom:15px" %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <br>
+
+      <%= f.submit "Log in", class: "btn btn-primary", :style => "width:170px; margin-bottom:15px" %>
+      <% end %>
+    </div>
+  </ul>
+
+  <li class="dropdown" style="margin-top:-5px">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="red" id="navthing">Sign up!</font>
+      <b class="caret"></b></a>
+  <ul class="dropdown-menu" style="width:210px">
+    <div class="row" style="width:170px; margin-left:10%; margin-top:10%; float:left">
+
+      <%= form_for(User.new) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control', :style => "margin-bottom:15px"  %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control', :style => "margin-bottom:15px" %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control', :style => "margin-bottom:15px" %>
+
+      <%= f.label :password_confirmation, "Confirm password" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <br>
+
+      <%= f.submit "Create my account!", class: "btn btn-primary", :style => "width:170px; margin-bottom:15px" %>
+      <% end %>
+    </div>
+  </ul>
+
+<% end %> <!-- This line ends the "if logged in" statement -->
+
+      </ul>
+    </nav>
+  </div>
+</header>

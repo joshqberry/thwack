@@ -1,0 +1,109 @@
+
+<br>
+<br>
+<br>
+<br>
+<br>
+  <h1> Users</h1>
+
+
+<div class='page-header'>
+  <h1> Users</h1>
+</div>
+
+<table class="table table-striped">
+            <tr>
+              <th>First name</th>
+              <th>Email</th>
+           </tr>
+              <tbody>
+                <% @users.each do |user| %>
+                  <tr>
+                      <td><%= link_to user.name, user_path(user) %></td>
+                      <td><%= user.email %></td>
+                 </tr>
+                    <% end %>
+              </tbody>
+      </table>
+<br>
+<br>
+
+
+<div style="text-align:center">
+
+  <h1 style="float:left; margin-left:10%">Add mastercomic to database</h1>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+<%= form_for @mastercomic do |f| %>
+
+   <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+   </p>
+
+   <p>
+    <%= f.label :issuenumber %>
+    <%= f.number_field :issuenumber %>
+   </p>
+
+   <p>
+    <%= f.label :publisher %>
+    <%= f.text_field :publisher %>
+   </p>
+
+   <p>
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+   </p>
+
+   <p>
+    <%= f.label :specialID %>
+    <%= f.text_field :specialID %>
+   </p>
+
+   <p>
+    <%= f.label :imagesource %>
+    <%= f.text_field :imagesource %>
+   </p>
+
+<%= f.submit %>
+
+<% end %>
+
+</div>
+
+
+<div class='page-header'>
+  <h1> <%= link_to "Mastercomics", mastercomics_path %></h1>
+</div>
+
+<table class="table table-striped">
+            <tr>
+              <th>Title</th>
+              <th>Issue number</th>
+              <th>Publisher</th>
+              <th>Category</th>
+              <th>Special ID</th>
+              <th>Image source</th>
+              <th>Image</th>
+           </tr>
+              <tbody>
+                <% @mastercomics.each do |mastercomic| %>
+                  <tr>
+                      <td><%= mastercomic.title %></td>
+                      <td><%= mastercomic.issuenumber %></td>
+                      <td><%= mastercomic.publisher %></td>
+                      <td><%= mastercomic.category %></td>
+                      <td><%= mastercomic.specialID %></td>
+                      <td><%= mastercomic.imagesource %></td>
+                      <td><img src="<%= mastercomic.imagesource %>" style="width:190px;height:260px;"></td>
+
+
+                 </tr>
+                    <% end %>
+              </tbody>
+      </table>

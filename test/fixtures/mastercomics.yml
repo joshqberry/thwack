@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  issuenumber: 1
+  publisher: MyString
+  category: MyString
+  specialID: MyString
+
+two:
+  title: MyString
+  issuenumber: 1
+  publisher: MyString
+  category: MyString
+  specialID: MyString
