@@ -9,6 +9,23 @@
 <% else %>
 <header id="test2" class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
+
+
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggle()">fixing dropdown
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content" id="myDropdown">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+
+
+
+
+
+
     <p id="navbarhed" style="font-size:40px; float:left; margin-top:-5px"><%= link_to "Thwack!", root_path, {:style=>'color:red'} %></p>
       <nav>
         <ul class="nav navbar-nav navbar-right">
