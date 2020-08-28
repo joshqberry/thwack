@@ -28,6 +28,13 @@ function toggle() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
+function toggle2() {
+  document.getElementById("myDropdown2").classList.toggle("show");
+}
+
+function toggle3() {
+  document.getElementById("myDropdown3").classList.toggle("show");
+}
 
 
 function appear() {

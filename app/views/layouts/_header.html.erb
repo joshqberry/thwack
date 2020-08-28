@@ -10,22 +10,6 @@
 <header id="test2" class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
 
-
-    <div class="dropdown">
-      <button class="dropbtn" onclick="toggle()">fixing dropdown
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content" id="myDropdown">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-      </div>
-
-
-
-
-
-
     <p id="navbarhed" style="font-size:40px; float:left; margin-top:-5px"><%= link_to "Thwack!", root_path, {:style=>'color:red'} %></p>
       <nav>
         <ul class="nav navbar-nav navbar-right">
@@ -43,10 +27,10 @@
   </ul>
 
 <% else %>
-  <li class="dropdown" style="margin-top:-5px">
+  <li class="dropbtn" onclick="toggle2()">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="red" id="navthing">Log in!</font>
       <b class="caret"></b></a>
-  <ul class="dropdown-menu" style="width:210px">
+  <ul class="dropdown-menu" id="myDropdown2" style="width:210px">
     <div class="row" style="width:170px; margin-left:10%; margin-top:10%; float:left">
 
       <%= form_for(:session, url: login_path) do |f| %>
@@ -64,10 +48,10 @@
     </div>
   </ul>
 
-  <li class="dropdown" style="margin-top:-5px">
+  <li class="dropbtn" onclick="toggle3()" style="margin-top:-5px">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="red" id="navthing">Sign up!</font>
       <b class="caret"></b></a>
-  <ul class="dropdown-menu" style="width:210px">
+      <ul class="dropdown-menu" id="myDropdown3" style="width:210px">
     <div class="row" style="width:170px; margin-left:10%; margin-top:10%; float:left">
 
       <%= form_for(User.new) do |f| %>
