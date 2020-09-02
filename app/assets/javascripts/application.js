@@ -32,7 +32,7 @@ function toggle2() {
   document.getElementById("myDropdown2").classList.toggle("show");
 }
 
-function toggle3() {
+function toggle3a() {
   document.getElementById("myDropdown3").classList.toggle("show");
 }
 
