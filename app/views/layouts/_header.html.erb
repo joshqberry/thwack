@@ -1,7 +1,7 @@
 <% if logged_in? %>
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <p id="navbarhed" style="font-size:40px; float:left; margin-top:-5px"><%= link_to "Thwack!", root_path, {:style=>'color:red'} %></p>
+    <p id="navbarhed" style="font-size:40px; float:left; margin-top:-3px"><%= link_to "Thwack!", root_path, {:style=>'color:red'} %></p>
       <nav>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "temporary link to Admin", welcome_path %></li>
@@ -10,7 +10,7 @@
 <header id="test2" class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
 
-    <p id="navbarhed" style="font-size:40px; float:left; margin-top:-5px"><%= link_to "Thwack!", root_path, {:style=>'color:red'} %></p>
+    <p id="navbarhed" style="font-size:40px; float:left; margin-top:-3px"><%= link_to "Thwack!", root_path, {:style=>'color:red'} %></p>
       <nav>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "temporary link to Admin", welcome_path %></li>
@@ -27,7 +27,7 @@
   </ul>
 
 <% else %>
-  <li class="dropbtn" onclick="toggle2()">
+  <li class="dropbtn" onclick="toggle2()" style="margin-top:-5px">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="red" id="navthing">Log in!</font>
       <b class="caret"></b></a>
   <ul class="dropdown-menu" id="myDropdown2" style="width:210px">
